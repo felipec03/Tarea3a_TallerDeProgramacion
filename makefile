@@ -3,8 +3,8 @@ INCLUDES = -Iheaders
 
 all: main
 
-main: FileReader.o Grafo.o DinicMaxFlow.o main.o
-	g++ $(FLAGS) main.o FileReader.o Grafo.o DinicMaxFlow.o -o main
+main: Grafo.o FileReader.o DinicMaxFlow.o main.o
+	g++ $(FLAGS) main.o Grafo.o FileReader.o DinicMaxFlow.o -o main
 
 Grafo.o: headers/Grafo.h src/Graph.cpp 
 	g++ -c $(FLAGS) $(INCLUDES) src/Graph.cpp -o Grafo.o

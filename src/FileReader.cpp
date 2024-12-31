@@ -2,12 +2,10 @@
 
 // Constructor
 FileReader::FileReader(string filename){
-    std::cout << "FileReader constructor called" << std::endl;
 }
 
 // Destructor
 FileReader::~FileReader(){
-    std::cout << "FileReader destructor called" << std::endl;
 }
 
 // Metodo para leer un archivo
