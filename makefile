@@ -3,11 +3,14 @@ INCLUDES = -Iheaders
 
 all: main
 
-main: Grafo.o FileReader.o DinicMaxFlow.o main.o
-	g++ $(FLAGS) main.o Grafo.o FileReader.o DinicMaxFlow.o -o main
+main: LinkCutTree.o Grafo.o FileReader.o DinicMaxFlow.o main.o
+	g++ $(FLAGS) main.o Grafo.o FileReader.o DinicMaxFlow.o LinkCutTree.o -o main
 
 Grafo.o: headers/Grafo.h src/Graph.cpp 
 	g++ -c $(FLAGS) $(INCLUDES) src/Graph.cpp -o Grafo.o
+
+LinkCutTree.o: headers/LinkCutTree.h src/LinkCutTree.cpp
+	g++ -c $(FLAGS) $(INCLUDES) src/LinkCutTree.cpp -o LinkCutTree.o
 
 DinicMaxFlow.o: headers/DinicMaxFlow.h src/DinicMaxFlow.cpp
 	g++ -c $(FLAGS) $(INCLUDES) src/DinicMaxFlow.cpp -o DinicMaxFlow.o

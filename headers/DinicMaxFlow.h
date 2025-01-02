@@ -1,4 +1,5 @@
 #include "FileReader.h"
+#include "LinkCutTree.h"
 // Implementacion del Algoritmo de Dinic aplicado Flujo Maximo para un Grafo Dirigido
 #include <algorithm>
 #include <list>
@@ -16,6 +17,8 @@ struct Edge {
     int rev;
 };
 
+
+
 class DinicMaxFlow {
     public:
         Grafo currentBest;
@@ -30,11 +33,14 @@ class DinicMaxFlow {
     private:
         vector<vector<Edge>> adj;
         vector<int> level;
+        LinkCutTree lct; 
+        vector<LCTNode*> edgeNodes;
+
+
 
         bool BFS(int s, int t);
         int sendFlow(int u, int flow, int t, vector<int> &start);
 
     public:
-        // New method to compute multi-source / multi-sink flow
         int computeFlow(Grafo &g);
 };
