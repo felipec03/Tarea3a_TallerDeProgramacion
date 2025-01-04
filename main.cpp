@@ -6,7 +6,14 @@ int main(){
     cout << "Ingrese el nombre del archivo: ";
     cin >> archivo;
     FileReader fr = FileReader(archivo);
+
+    cout << "Leyendo archivo..." << endl;
+    auto startLectura = chrono::high_resolution_clock::now();
     Grafo g = fr.read(archivo);
+    
+    auto endLectura = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsedLectura = endLectura - startLectura;
+    cout << "Tiempo de lectura: " << elapsedLectura.count() << " [s]" << endl;
 
 
     // Imprimir nodos fuentes
@@ -36,6 +43,6 @@ int main(){
     // Tiempo total
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end - start;
-    cout << "Tiempo total: " << elapsed.count() << " [ms]" << endl;
+    cout << "Tiempo total: " << elapsed.count() << " [s]" << endl;
     return 0;
 }

@@ -17,7 +17,7 @@ Grafo FileReader::read(string filename) {
     // Check for errors
     if (!file.is_open()) {
         cout << "Error: No se pudo abrir el archivo" << endl;
-        return grafo;
+        exit(1);
     }
     
     // Read sources (first line)
